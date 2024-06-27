@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .button {
+            display: inline-block;
+            width: 100px; /* Fixed width for buttons */
+            height: 40px; /* Fixed height for buttons */
+            line-height: 40px; /* Center text vertically */
+            margin: 10px 5px;
+            font-size: 14px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            text-align: center; /* Center text horizontally */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        .button-danger {
+            background-color: #dc3545;
+        }
+        .button-danger:hover {
+            background-color: #c82333;
+            transform: scale(1.05);
+        }
+        .button-secondary {
+            background-color: #6c757d;
+        }
+        .button-secondary:hover {
+            background-color: #5a6268;
+            transform: scale(1.05);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table th, table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        table th {
+            background-color: #007bff;
+            color: white;
+        }
+        .name-column {
+            width: 45%;
+        }
+        .price-column {
+            width: 45%;
+        }
+        .actions-column {
+            width: 10%;
+        }
+        .action-buttons {
+            display: flex;
+            justify-content: space-around;
+        }
+        .action-buttons form {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Products</h1>
+    <a href="/products/new" class="button">Add Product</a>
+    <table>
+        <thead>
+        <tr>
+            <th class="name-column">Name</th>
+            <th class="price-column">Price</th>
+            <th class="actions-column">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${products}">
+            <td th:text="${product.name}" class="name-column"></td>
+            <td th:text="${product.price}" class="price-column"></td>
+            <td class="actions-column">
+                <div class="action-buttons">
+                    <form th:action="@{/products/{id}(id=${product.id})}" method="get">
+                        <button type="submit" class="button button-secondary">View Details</button>
+                    </form>
+                    <form th:action="@{/products/update/{id}(id=${product.id})}" method="get">
+                        <button type="submit" class="button">Edit</button>
+                    </form>
+                    <form th:action="@{/products/delete/{id}(id=${product.id})}" method="post">
+                        <button type="submit" class="button button-danger">Delete</button>
+                    </form>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

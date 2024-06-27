@@ -1,4 +1,4 @@
-package com.example.demo.Exceptions;
+package com.restfulAPI.Exceptions;
 
 public class DoesNotExist extends Exception{
 

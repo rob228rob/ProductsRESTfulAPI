@@ -1,9 +1,9 @@
-package com.example.demo.controllers;
+package com.restfulAPI.controllers;
 
-import com.example.demo.MailSender.service.MailSenderService;
-import com.example.demo.dto.ProductDTO;
-import com.example.demo.models.Product;
-import com.example.demo.services.ProductService;
+import com.restfulAPI.MailSender.service.MailSenderService;
+import com.restfulAPI.dto.ProductDTO;
+import com.restfulAPI.models.Product;
+import com.restfulAPI.services.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -76,8 +76,10 @@ public class ProductController {
     }
 
     @GetMapping("/all")
-    public List<Product> getAllProducts() {
-        return productService.readAllProducts();
+    public ResponseEntity<List<Product>> getAllProducts() {
+        var products = productService.readAllProducts();
+
+        return ResponseEntity.ok(products);
     }
 
     @GetMapping("/{id}")
@@ -99,7 +101,7 @@ public class ProductController {
     }
 
     @PutMapping("/update")
-    public ResponseEntity<Product> updateProduct(@RequestBody ProductDTO dto) {
+    public ResponseEntity<Product> updateProduct(@RequestBody Product dto) {
         productService.updateProduct(dto);
 
         return new ResponseEntity<>(HttpStatus.OK);

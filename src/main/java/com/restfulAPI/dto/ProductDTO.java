@@ -1,10 +1,14 @@
-package com.example.demo.dto;
+package com.restfulAPI.dto;
 
-import lombok.Data;
+import lombok.*;
 
 import java.math.BigDecimal;
 
 @Data
+@AllArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
 public class ProductDTO {
 
     private String productName;

@@ -1,6 +1,6 @@
-package com.example.demo.services;
+package com.restfulAPI.services;
 
-import com.example.demo.models.Category;
+import com.restfulAPI.models.Category;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

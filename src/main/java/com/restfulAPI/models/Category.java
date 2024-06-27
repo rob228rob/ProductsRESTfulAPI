@@ -1,4 +1,4 @@
-package com.example.demo.models;
+package com.restfulAPI.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

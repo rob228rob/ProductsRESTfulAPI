@@ -1,4 +1,4 @@
-package com.example.demo.models;
+package com.restfulAPI.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,6 +14,8 @@ import java.math.BigDecimal;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 public class Product {
 
     @Id

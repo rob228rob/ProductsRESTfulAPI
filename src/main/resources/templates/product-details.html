@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .product-details {
+            text-align: center;
+        }
+        .product-details h2 {
+            color: #007bff;
+        }
+        .product-details p {
+            font-size: 1.2em;
+        }
+        a {
+            text-align: center;
+            display: block;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Product Details</h1>
+    <div class="product-details">
+        <h2 th:text="${product.name}"></h2>
+        <p th:text="'Price: $' + ${product.price}"></p>
+    </div>
+    <a href="/products">Back to Product List</a>
+</div>
+</body>
+</html>

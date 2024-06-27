@@ -1,4 +1,4 @@
-package com.example.demo.controllers;
+package com.restfulAPI.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
 
